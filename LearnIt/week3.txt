@@ -1,0 +1,39 @@
+All database transactions must be ACID compliant or be Atomic, Consistent, Isolated, and Durable to ensure data integrity.
+
+Atomicity requires that either transaction as a whole be successfully executed or if a part of the transaction fails, then the entire transaction be invalidated.
+
+Consistency mandates the data written to the database as part of the transaction must adhere to all defined rules, and restrictions including constraints, cascades, and triggers
+
+Isolation is critical to achieving concurrency control and makes sure each transaction is independent unto itself.
+
+Durability requires that all of the changes made to the database be permanent once a transaction is successfully completed.
+
+Unlike traditional NoSQL databases, MySQL is fully ACID (Atomicity, Consistency, Isolation and Durability) compliant.
+
+NoSQL databases often lack Durability. This means that data can be lost after a crash. Consistency is also not guaranteed. As the MySQLDocument Store relies on the InnoDB Storage Engine, the Document Store benefits from InnoDB’s strength & robustness. By default, out-of-the-box, InnoDB is fully Durable and once data is acknowledged as committed, it won’t be lost.
+
+MySQL Document Store also supports Atomicity and Isolation as transactions are a core capability of InnoDB. See example below:
+
+With the new MySQL Document Store and the X protocol, new operations have been introduced to manage collections and/or relational tables. Those operations are called CRUD (Create, Read, Update, Delete) operations for data management without writing a single line of SQL. Of course, CRUD operation have been differentiated into 2 groups, one to operate on Collections and one to operate on Tables: add(), find()
+
+MySQL Document Store enables the new universe of schemaless data. When storing documents, all the attributes don’t need to be known in advance, the document can always be modified later. db.user.find() / db.users.modify().set()
+
+To retrieve data from a SQL database, we need to write SELECT statements, which are often colloquially refered to as queries.
+
+A query in itself is just a statement which declares what data we are looking for, where to find it in the database, and optionally, how to transform it before it is returned
+
+MySQL Document Store is secure by default: strong root password, password policy, roles, SSL. Several backups solutions are also available. When a MySQL instance is started, a(n) SSL certificate will be created to communicate with the clients on a secure link.
+
+PostgreSQL is a powerful, open source object-relational database system that uses and extends the SQL language combined with many features that safely store and scale the most complicated data workloads. The origins of PostgreSQL date back to 1986 as part of the POSTGRES project at the University of California at Berkeley and has more than 30 years of active development on the core platform.
+
+PostgreSQL has earned a strong reputation for its proven architecture, reliability, data integrity, robust feature set, extensibility, and the dedication of the open source community behind the software to consistently deliver performant and innovative solutions.
+
+Since developers don’t need to focus on table design, they
+don’t need to take care of normalization, foreign keys and constraints or even datatypes. This allows for very quick initial development. Since documents are dynamic, schema migration is also not a problem, and large ALTER statements are not needed. For example, see the following data:
+
+PostgreSQL runs on all major operating systems, has been ACID-compliant since 2001, and has powerful add-ons such as the popular PostGIS geospatial database extender.
+
+PostgreSQL comes with many features aimed to help developers build applications, administrators to protect data integrity and build fault-tolerant environments, and help you manage your data no matter how big or small the dataset.
+
+In addition to being free and open source, PostgreSQL is highly extensible. For example, you can define your own data types, build out custom functions, even write code from different programming languages without recompiling your database.
+

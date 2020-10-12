@@ -1,0 +1,50 @@
+A(n) relational database represents a collection of related (two-dimensional) tables. Each of the tables are similar to an Excel spreadsheet, with a fixed number of named columns (the attributes or properties of the table) and any number of rows of data.
+
+A(n) relational database organizes data into tables which can be linked—or related—based on data common to each. This capability enables you to retrieve an entirely new table from data in one or more tables with a single query.
+
+Report generators take these queries and run them on demand to create formal reports. Many of the documents businesses run to track inventory, sales, finance, or even perform financial projections come from a relational database operating behind the scenes.
+
+The primary benefit of the relational database approach is the ability to create meaningful information by joining the tables.
+
+Joining tables allows you to understand the relationships between the data, or how the tables connect.
+
+The relational database approach the single most popular query tool in business today.
+
+Relational databases have several advantages compared to other database formats: 1) FLexibilty 2) Reduced Redundency 3) Ease of backup and disaster recovery
+
+Relational databases eliminate data redundancy.
+
+For example, in a relational database, if the Department of Motor Vehicles had a database, you might find a table containing all the known vehicles that people in the state are driving. This table might need to store the model name, type, number of wheels, and number of doors of each vehicle for example.
+
+The information for a single customer appears in one place—a single entry in the customer table. The order table only needs to store a link to the customer table. The practice of separating the data to avoid redundancy is called normalization.
+
+n order to reduce redundancy professional database designers make sure the tables normalize during the design process.
+
+The MySQL software delivers a very fast, multithreaded, multi-user, and robust SQL (Structured Query Language) database server.
+
+Many of the world's largest and fastest-growing organizations including Facebook, Google, Adobe, Alcatel Lucent and Zappos rely on MySQL to save time and money powering their high-volume Web sites, business-critical systems and packaged software.
+
+MySQL can be used for NoSQL and SQL in same database server.
+
+Unlike traditional NoSQL databases, MySQL is fully ACID (Atomicity, Consistency, Isolation and Durability) compliant.
+
+NoSQL databases often lack durability. This means that data can be lost after a crash. Consistency is also not guaranteed. As the MySQL Document Store relies on the InnoDB Storage Engine, the Document Store benefits from InnoDB’s strength & robustness. By default, out-of-the-box, InnoDB is fully Durable and once data is acknowledged as committed, it won’t be lost.
+
+With the new MySQL Document Store and the X protocol, new operations have been introduced to manage collections and/or relational tables. Those operations are called CRUD (Create, Read, Update, Delete) operations for data management without writing a single line of SQL.
+
+Within MySQL, CRUD operation have been differentiated into 2 groups, one to operate on collections and one to operate on tables.
+
+Relational databases are transactional—they guarantee the state of the entire system is consistent at any moment.
+
+Most relational databases offer easy export and import options, making backup and restore trivial. These exports can happen even while the database is running, making restore on failure easy.
+
+Modern, cloud-based relational databases can do continuous mirroring, making the loss of data on restore measured in seconds or less.
+
+Most cloud-managed services allow you to create Read Replicas, like in IBM Cloud Databases for PostgreSQL. These Read Replicas enable you to store a read-only copy of your data in a cloud data center. Replicas can be promoted to Read/Write instances for disaster recovery as well.
+
+MySQL is a common and easy to start a low-memory/disk/CPU database. It supports all the basic SQL commands, along with transactions and Atomicity, Consistency, Isolation, Durability (ACID) performance. MySQL is the most common database integrated with WordPress sites.
+
+PostgreSQL is also open source. It provides enterprise features such as security, scalability, and support for more automation through a command-line interface, as well as direct access over the web.
+
+PostgreSQL supports stored procedures, which is a more complex programming language built on top of SQL. Teams can use stored procedures to do data extraction, transform, and load between systems.
+

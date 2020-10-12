@@ -1,0 +1,46 @@
+In contrast to relational databases, NoSQL databases provide ways of storing, searching and retrieving data other than in tables with relationships.
+
+The most popular form of NoSQL database is a simple key-value pair. This places all the data in a single table. The key is a unique element.
+
+When computers run over a network, they invariably need to decide to prioritize consistent results (where every answer is always the same) or high uptime, called "availability." This is called the "CAP Theory," which stands for Consistency, Availability, or Partition Tolerance.
+
+CAP Theory stands for: Consistency, Availability, Partition Tolerance
+
+Relational databases ensure the information is always in-sync and consistent. Some NoSQL databases, like MongoDB, prefer to always provide a response. That means the information you receive from a query may be incorrect by a few seconds—perhaps up to half a minute.
+
+While relational databases have a predefined set of rows and columns, NoSQL databases are structured more like a document. If you know where the information is in the document, you can retrieve it. If the material is still in the document, you can add other, structured information, without having to change the rules.
+
+Other NoSQL database formats include document story, graph, and object databases. A broader term for NoSQL databases is non-relational.
+
+A schema of a database is the structure defined in a formal language. In SQL, there are two formal languages: Data Definition Language (DDL) and Data Manipulation Language (DML).
+
+To select data from a table, update it, or delete it, programmers use DML (Data Manipulation Language). To work on the database and to create and define the tables and relations, they use DDL (Data Definition Language) or a tool to create the DDL.
+
+DDL includes commands like CREATE, DROP, ALTER, COMMENT, and RENAME. The first DDL command is CREATE TABLE.
+
+The CREATE TABLE command defines the primary key (which must be unique), the fields, how those fields store data, and any other constraints on the table. Once defined, you can establish a database as a combination of its definition language and the DML to INSERT the rows into the tables.
+
+From a licensing perspective, relational databases vary in one important way: open source databases vs. commercially supported databases.
+
+A relational database needs two things to run—the database software itself and the Data Definition Language (DDL) code to create it.
+
+A relational database is a collection of data items with pre-defined relationships between them. These items are organized as a set of tables with columns and rows.
+
+In a relational database tables are used to hold information about the objects to be represented in the database. Each column in a table holds a certain kind of data and a field stores the actual value of an attribute.
+
+In a relational database the rows in the table represent a collection of related values of one object or entity. Each row in a table could be marked with a unique identifier called a primary key, and rows among multiple tables can be made related using foreign keys. This data can be accessed in many different ways without reorganizing the database tables themselves.
+
+SQL or Structured Query Language is the primary interface used to communicate with Relational Databases.
+
+SQL is used to add, update or delete rows of data, retrieving subsets of data for transaction processing and analytics applications, and to manage all aspects of the database.
+
+Data integrity is the overall completeness, accuracy and consistency of data. Relational databases use a set of constraints to enforce data integrity in the database.
+
+Relational databases use a set of constraints to enforce data integrity in the database. These include primary Keys, Foreign Keys, ‘Not NULL’ constraint, ‘Unique’ constraint, ‘Default’ constraint and ‘Check’ constraints. 
+
+A database transaction is one or more SQL statements that are executed as a sequence of operations that form a single logical unit of work.
+
+Transactions provide an "all-or-nothing" proposition, meaning that the entire transaction must complete as a single unit and be written to the database or none of the individual components of the transaction should go through. In the relation database terminology, a transaction results in a COMMIT or a ROLLBACK.
+
+In relational databases each transaction is treated in a coherent and reliable way independent of other transactions.
+
