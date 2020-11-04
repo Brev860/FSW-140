@@ -18,7 +18,7 @@ For example, in a relational database, if the Department of Motor Vehicles had a
 
 The information for a single customer appears in one place—a single entry in the customer table. The order table only needs to store a link to the customer table. The practice of separating the data to avoid redundancy is called normalization.
 
-n order to reduce redundancy professional database designers make sure the tables normalize during the design process.
+In order to reduce redundancy professional database designers make sure the tables normalize during the design process.
 
 The MySQL software delivers a very fast, multithreaded, multi-user, and robust SQL (Structured Query Language) database server.
 
