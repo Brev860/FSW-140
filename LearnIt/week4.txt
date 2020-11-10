@@ -1,0 +1,54 @@
+PostgreSQL is a general purpose and object-relational database management system, the most advanced open source database system.
+
+Certain principles guide the database design process. The first principle is that duplicate information (also called redundant data) is bad, because it wastes space and increases the likelihood of errors and inconsistencies.
+
+PostgreSQL is the first database management system that implements multi-version concurrency control (MVCC) feature.
+
+The SELECT command is used to show data from a database.
+
+The output from a SELECT statement is always a grid - with a number of rows and a number of columns.
+
+The COUNT() function returns the number of rows that matches a specified criteria.
+
+The SUM() function returns the total sum of a numeric column.
+
+The NULL value may be used to indicate missing or unknown data. You can use the phrase IS NULL to select these values.
+
+You can think of a table in SQL as a type of an entity (ie. Dogs), and each row in that table as a specific instance of that type (ie. A pug, a beagle, a different colored pug, etc). This means that the columns would then represent the common properties shared by all instances of that entity (ie. Color of fur, length of tail, etc).
+
+Given a table of data, the most basic query we could write would be one that selects for a couple columns (properties) of the table with all the rows (instances).
+
+In order to filter certain results from being returned, we need to use a WHERE clause in the query. The clause is applied to each row of data by checking specific column values to determine whether it should be included in the results or not.
+
+The second principle of good database design is that the correctness and completeness of information is important. If your database contains incorrect information, any reports that pull information from the database will also contain incorrect information. As a result, any decisions you make that are based on those reports will then be misinformed.
+
+Entity data in the real world is often broken down into pieces and stored across multiple orthogonal tables using a process known as normalization.
+
+Database normalization is useful because it minimizes duplicate data in any single table, and allows for data in the database to grow independently of each other (ie. Types of car engines can grow independent of each type of car). As a trade-off, queries get slightly more complex since they have to be able to find data from different parts of the database, and performance issues can arise when working with many large tables.
+
+
+Tables that share information about a single entity need to have a primary key that identifies that entity uniquely across the database. One common primary key type is an auto-incrementing integer (because they are space efficient), but it can also be a string, hashed value, so long as it is unique. 
+
+Using the JOIN clause in a query, we can combine row data across two separate tables using this unique key. The first of the joins that we will introduce is the INNER JOIN.
+
+The INNER JOIN is a process that matches rows from the first table and the second table which have the same key (as defined by the ON constraint) to create a result row with the combined columns from both tables. After the tables are joined, the other clauses we learned previously are then applied.
+
+You might see queries where the INNER JOIN is written simply as a JOIN. These two are equivalent, but we will continue to refer to these joins as inner-joins because they make the query easier to read once you start using other types of joins.
+
+If the two tables have asymmetric data, which can easily happen when data is entered in different stages, then we would have to use a LEFT JOIN, RIGHT JOIN or FULL JOIN instead to ensure that the data you need is not left out of the results.
+
+Like the INNER JOIN these three new joins have to specify which column to join the data on. When joining table A to table B, a LEFT JOIN simply includes rows from A regardless of whether a matching row is found in B. The RIGHT JOIN is the same, but reversed, keeping rows in B regardless of whether a match is found in A. Finally, a FULL JOIN simply means that rows from both tables are kept, regardless of whether a matching row exists in the other table.
+
+You might see queries with these joins written as LEFT OUTER JOIN, RIGHT OUTER JOIN, or FULL OUTER JOIN, but the OUTER keyword is really kept for SQL-92 compatibility and these queries are simply equivalent to LEFT JOIN, RIGHT JOIN, and FULL JOIN respectively.
+
+You can put two or more strings together using the concatenate operator. The SQL standard says you should use || but there are many differences between the main vendors
+
+1 Divides your information into subject-based tables to reduce redundant data.
+2 Provides Access with the information it requires to join the information in the tables together as needed.
+3 Helps support and ensure the accuracy and integrity of your information.
+4 Accommodates your data processing and reporting needs.
+
+The LIKE command allows "Wild cards". A % may be used to match and string, _ will match any single character. The example shows countries begining with Z. The country Zambia matches because ambia matches with the %
+
+
+

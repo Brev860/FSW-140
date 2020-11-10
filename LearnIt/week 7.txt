@@ -1,0 +1,73 @@
+ A FOREIGN KEY is a key used to link two tables together.
+
+A FOREIGN KEY is a field (or collection of fields) in one table that refers to the PRIMARY KEY in another table. The table containing the foreign key is called the child table, and the table containing the candidate key is called the referenced or parent table.
+
+A PRIMARY KEY is a field (or collection of fields) in one table that refers to the FOREIGN KEY in another table. False
+
+When working with multiple tables, the UNION and UNION ALL operator allows you to append the results of one query to another assuming that they have the same column count, order and data type. If you use the UNION without the ALL, duplicate rows between the tables will be removed from the result.
+
+In the SQL order of operations the UNION happens before the ORDER BY and LIMIT. It's not common to use UNIONs, but if you have data in different tables that can't be joined and processed, it can be an alternative to making multiple queries on the database.
+
+Similar to the UNION, the INTERSECT operator will ensure that only rows that are identical in both result sets are returned, and the EXCEPT operator will ensure that only rows in the first result set that aren't in the second are returned. This means that the EXCEPT operator is query order-sensitive, like the LEFT JOIN and RIGHT JOIN.
+
+Both INTERSECT and EXCEPT also discard duplicate rows after their respective operations, though some databases also support INTERSECT ALL and EXCEPT ALL to allow duplicates to be retained and returned.
+
+You might have noticed that even with a complete query, there are many questions that we can't answer about our data without additional post, or pre, processing. In these cases, you can either make multiple queries and process the data yourself, or you can build a more complex query using SQL subqueries.
+
+A subquery can be referenced anywhere a normal table can be referenced. Inside a FROM clause, you can JOIN subqueries with other tables, inside a WHERE or HAVING constraint, you can test expressions against the results of the subquery, and even in expressions in the SELECT clause, which allow you to return data directly from the subquery. They are generally executed in the same logical order as the part of the query that they appear in, as described in the last lesson.
+
+A subquery can be referenced anywhere a normal table can be referenced. Inside a FROM clause, you can JOIN subqueries with other tables, inside a WHERE or HAVING constraint, you can test expressions against the results of the subquery, and even in expressions in the SELECT clause, which allow you to return data directly from the subquery. They are generally executed in the same logical order as the part of the query that they appear in, as described in the last lesson.
+
+Because subqueries can be nested, each subquery must be fully enclosed in parentheses in order to establish proper hierarchy. Subqueries can otherwise reference any tables in the database, and make use of the constructs of a normal query (though some implementations don't allow subqueries to use LIMIT or OFFSET).
+
+A more powerful type of subquery is the correlated subquery in which the inner query references, and is dependent on, a column or alias from the outer query. Each of these inner queries need to be run for each of the rows in the outer query, since the inner query is dependent on the current outer query row.
+
+When we introduced WHERE constraints the IN operator was used to test whether the column value in the current row existed in a fixed list of values. In complex queries, this can be extended using subqueries to test whether a column value exists in a dynamic list of values. This is referred to as an existence test.
+
+A slightly more advanced twist on associations is the polymorphic association. With polymorphic associations, a model can belong to more than one other model, on a single association. For example, you might have a picture model that belongs to either an employee model or a product model.
+
+The attached picture is an example of polymorphic associations, where a model can belong to more than one other model
+
+SQL is a language, but there are many different implementations of SQL. An implementation of SQL is the software that actually processess your SQL commands. A synonymous term is RDBMS (relational database management systems): this is the software that stores the data, and later figures out how to fetch it back when queried. Examples: PostgreSQL, MySQL, Oracle, SQLServer, SQLite3.
+
+We can divide IT systems into transactional (OLTP) and analytical (OLAP). In general we can assume that OLTP systems provide source data to data warehouses, whereas OLAP systems help to analyze it.
+
+OLTP (On-line Transaction Processing) is characterized by a large number of short on-line transactions (INSERT, UPDATE, DELETE). The main emphasis for OLTP systems is put on very fast query processing, maintaining data integrity in multi-access environments and an effectiveness measured by number of transactions per second. In OLTP database there is detailed and current data, and schema used to store transactional databases is the entity model (usually 3NF).
+
+OLAP (On-line Analytical Processing) is characterized by relatively low volume of transactions. Queries are often very complex and involve aggregations. For OLAP systems a response time is an effectiveness measure. OLAP applications are widely used by Data Mining techniques. In OLAP database there is aggregated, historical data, stored in multi-dimensional schemas (usually star schema).
+
+Amazon Redshift’s DISTKEY and SORTKEY are a powerful set of tools for optimizing query performance. Because Redshift is a columnar database with compressed storage, it doesn’t use indexes the way a transactional database such as MySQL or PostgreSQL would. Instead, it uses DISTKEYs and SORTKEYs.
+
+1. Pick a few important queries you want to optimize your databases for. You can’t optimize your table for all queries, unfortunately.
+2. To avoid a large data transfer over the network, define a DISTKEY.
+3. From the columns used in your queries, choose a column that causes the least amount of skew as the DISTKEY. A column which has many distinct values, such as timestamp, would be a good first choice. Avoid columns with few distinct values, such as
+4. Even though it will almost never be the best performer, a table with no DISTKEY/SORTKEY is a decent all-around performer. It’s a good option not to define DISTKEY and SORTKEY until you really understand the nature of your data and queries.
+
+When you create a table, you can define one or more of its columns as sort keys. When data is initially loaded into the empty table, the rows are stored on disk in sorted order. Information about sort key columns is passed to the query planner, and the planner uses this information to construct plans that exploit the way that the data is sorted.
+
+You can specify either a compound or interleaved sort key. A compound sort key is more efficient when query predicates use a prefix, which is a subset of the sort key columns in order
+
+Redshift Distribution Keys (DIST Keys) determine where data is stored in Redshift. Clusters store data fundamentally across the compute nodes. Query performance suffers when a large amount of data is stored on a single node.
+
+Uneven distribution of data across computing nodes leads to the skewness of the work a node has to do and you don’t want an under-utilised compute node. So the distribution of the data should be uniform. Distribution is per table. So you can select a different distribution style for each of the tables you are going to have in your database.
+
+1. Even distribution:
+2. Key Distribution
+3. All distribution
+
+PostgreSQL databases require periodic maintenance known as vacuuming. For many installations, it is sufficient to let vacuuming be performed by the autovacuum daemon,
+
+Some database administrators will want to supplement or replace the daemon's activities with manually-managed VACUUM commands, which typically are executed according to a schedule by cron or Task Scheduler scripts.
+
+1. To recover or reuse disk space occupied by updated or deleted rows.
+2. To update data statistics used by the PostgreSQL query planner.
+3. To protect against loss of very old data due to transaction ID wraparound.
+
+VACUUM reclaims storage occupied by dead tuples. In normal PostgreSQL operation, tuples that are deleted or obsoleted by an update are not physically removed from their table; they remain present until a VACUUM is done. Therefore it's necessary to do VACUUM periodically, especially on frequently-updated tables.
+
+Multidimensional schema is especially designed to model data warehouse systems. The schemas are designed to address the unique needs of very large databases designed for the analytical purpose (OLAP). Examples: Star, Snowflake, Galaxy, Cluster.
+
+In the Star Schema, the center of the star can have one fact table and a number of associated dimension tables. It is known as star schema as its structure resembles a star. The star schema is the simplest type of Data Warehouse schema. It is also known as Star Join Schema and is optimized for querying large data sets.
+
+A Snowflake Schema is an extension of a Star Schema, and it adds additional dimensions. It is called snowflake because its diagram resembles a Snowflake. The dimension tables are normalized which splits data into additional tables. In the following example, Country is further normalized into an individual table.
+

@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import axios from 'axios'
-import Display from './Display'
+
 
 class Data extends Component {
    state = {
@@ -30,7 +30,7 @@ class Data extends Component {
          
         
         ))
-        console.log(this.state.series)
+       
         return(
             <div>
                 <h1 className='header'>Bob Ross Episode list</h1>
